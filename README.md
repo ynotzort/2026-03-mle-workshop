@@ -41,3 +41,8 @@ cd ..
 
 ### Add Gitignore
 - get gitignore from https://github.com/github/gitignore/blob/main/Python.gitignore and save it into .gitignore
+
+### convert the notebook into a script
+- `uv run jupyter nbconvert --to=script notebooks/duration-prediction-starter.ipynb`
+- create a folder named `duration_prediction` (`mkdir duration_prediction`)
+- move the freshly created file `notebooks/duration-prediction-starter.py` into `duration_prediction` and rename it to `train.py`
