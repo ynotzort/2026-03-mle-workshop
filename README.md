@@ -56,3 +56,4 @@ cd ..
 - add the pipeline code
 - parametrize the train function
 - use argparse for argument parsing
+    - alternatives are https://github.com/fastapi/typer and click and fire
