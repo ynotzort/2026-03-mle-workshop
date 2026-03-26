@@ -9,7 +9,33 @@ from sklearn.metrics import mean_squared_error
 from sklearn.pipeline import make_pipeline
 
 
-def read_dataframe(filename):
+def read_dataframe(filename: str) -> pd.DataFrame:
+    """
+    Reads a parquet file into a pandas DataFrame, processes the data, and returns a cleaned DataFrame.
+
+    Returns a DataFrame with the following transformations applied:
+        - A 'duration' column representing the ride duration in minutes (calculated as the difference
+          between 'lpep_dropoff_datetime' and 'lpep_pickup_datetime').
+        - The DataFrame is filtered to only include rows where 'duration' is between 1 and 60 minutes.
+        - The columns 'PULocationID' and 'DOLocationID' are converted to string data type.
+
+    Parameters:
+    -----------
+    filename : str
+        The path to the parquet file to be read.
+
+    Returns:
+    --------
+    pd.DataFrame
+        The transformed df
+        
+
+    Notes:
+    ------
+    - The function assumes that the parquet file contains 'lpep_pickup_datetime' and 'lpep_dropoff_datetime' columns,
+      which are used to compute the 'duration'.
+    - The output DataFrame will not contain rows where the calculated 'duration' is outside the range [1, 60] minutes.
+    """
     df = pd.read_parquet(filename)
 
     df['duration'] = df.lpep_dropoff_datetime - df.lpep_pickup_datetime
@@ -24,6 +50,23 @@ def read_dataframe(filename):
 
 
 def train(train_date: date, val_date: date, out_path: str) -> None:
+    """
+    Trains a linear regression model on taxi trip data and saves the trained pipeline.
+
+    Parameters:
+    -----------
+    train_date : date
+        The date for the training data (used to construct the file URL).
+    val_date : date
+        The date for the validation data (used to construct the file URL).
+    out_path : str
+        The path where the trained model pipeline will be saved.
+
+    Returns:
+    --------
+    None
+        The function trains the model and saves the pipeline to the specified output path.
+    """
     base_url = 'https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_{year}-{month:02d}.parquet'
     train_url = base_url.format(year=train_date.year, month=train_date.month)
     val_url = base_url.format(year=val_date.year, month=val_date.month)
