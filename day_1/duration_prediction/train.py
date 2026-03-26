@@ -55,7 +55,7 @@ def read_dataframe(filename: str) -> pd.DataFrame:
         raise
 
 
-def train(train_date: date, val_date: date, out_path: str) -> None:
+def train(train_date: date, val_date: date, out_path: str) -> float:
     """
     Trains a linear regression model on taxi trip data and saves the trained pipeline.
 
@@ -70,8 +70,8 @@ def train(train_date: date, val_date: date, out_path: str) -> None:
 
     Returns:
     --------
-    None
-        The function trains the model and saves the pipeline to the specified output path.
+    mse: float
+        The validation mse
     """
     base_url = 'https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_{year}-{month:02d}.parquet'
     train_url = base_url.format(year=train_date.year, month=train_date.month)
@@ -107,5 +107,6 @@ def train(train_date: date, val_date: date, out_path: str) -> None:
 
     with open(out_path, 'wb') as f_out:
         pickle.dump(pipeline, f_out)
+    return mse
 
 
