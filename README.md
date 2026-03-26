@@ -55,4 +55,4 @@ cd ..
 - create a train function and remove top-level statements. add `if __name__=="__main__": ...`
 - add the pipeline code
 - parametrize the train function
-
+- use argparse for argument parsing
