@@ -29,3 +29,10 @@ cd ..
 ### install dependencies
 - `uv add scikit-learn==1.2.2 pandas pyarrow`
 - `uv add --dev jupyter seaborn`
+...
+
+### launch jupyter notebook
+- `uv run jupyter notebook`
+
+### Add Gitignore
+- get gitignore from https://github.com/github/gitignore/blob/main/Python.gitignore and save it into .gitignore
