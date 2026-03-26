@@ -34,5 +34,10 @@ cd ..
 ### launch jupyter notebook
 - `uv run jupyter notebook`
 
+### make vscode recognize the python env correctly and use jupyter from within
+- open a .py file (main.py)
+- on the bottom right click on the python version -> browse -> find the path to python (here it was /workspaces/2026-03-mle-workshop/day_1/.venv/bin/python)
+- go to the jupyter notebook file and click select kernel -> python environments -> day_1
+
 ### Add Gitignore
 - get gitignore from https://github.com/github/gitignore/blob/main/Python.gitignore and save it into .gitignore
