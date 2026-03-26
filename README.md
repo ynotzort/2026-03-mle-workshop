@@ -46,3 +46,10 @@ cd ..
 - `uv run jupyter nbconvert --to=script notebooks/duration-prediction-starter.ipynb`
 - create a folder named `duration_prediction` (`mkdir duration_prediction`)
 - move the freshly created file `notebooks/duration-prediction-starter.py` into `duration_prediction` and rename it to `train.py`
+
+### lets make the train.py script nice
+- remove the # lines from the script
+- move all imports to the top
+- remove matplotlib and seaborn
+- try to run it: `uv run python duration_prediction/train.py`
+
