@@ -54,4 +54,5 @@ cd ..
 - try to run it: `uv run python duration_prediction/train.py`
 - create a train function and remove top-level statements. add `if __name__=="__main__": ...`
 - add the pipeline code
+- parametrize the train function
 
