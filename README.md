@@ -60,3 +60,4 @@ cd ..
 - add docstrings and typing
 - add simple error handling
 - add logging: `uv add loguru`
+- split out the argparse into main.py and make it a module by adding a `__init__.py` file. now we have tocall our code using `uv run python -m duration_prediction.main --train-date 2022-01 --val-date 2022-02 --model-save-path model.bin`
