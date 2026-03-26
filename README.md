@@ -59,3 +59,4 @@ cd ..
     - alternatives are https://github.com/fastapi/typer and click and fire
 - add docstrings and typing
 - add simple error handling
+- add logging: `uv add loguru`
