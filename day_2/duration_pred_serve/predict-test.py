@@ -8,3 +8,6 @@ trip = {
 }
 response = requests.post(url, json=trip).json()
 print(response)
+
+prediction = response["prediction"]["duration"]
+# assert abs(prediction - 8.43) < 0.01
