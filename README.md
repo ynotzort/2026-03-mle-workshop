@@ -84,3 +84,8 @@ now we can run training via `make train`
 - add webserver dependency: `uv add "fastapi[standard]"`
 - add requests dependency `uv add --dev requests`
 - copy model over from day_1 (`mkdir models && cp ../../day_1/models/2022-01.bin models/`)
+
+## ping example for fastAPI
+- create a `ping.py` file inside of `src/duration_pred_serve/` and open it.
+- change the python virtual environment to use the correct day 2 env. click on the bottom left where it says day_1 and click browse and select `/workspaces/2026-03-mle-workshop/day_2/duration_pred_serve/.venv/bin/`
+- run it via `uv run fastapi dev src/duration_pred_serve/ping.py`
