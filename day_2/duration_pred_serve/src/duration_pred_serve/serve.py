@@ -3,9 +3,18 @@ from typing import Any
 
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
+from loguru import logger
 
-with open("./models/2022-01.bin", "rb") as f_in:
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    MODEL_PATH: str = "./model.bin"
+    
+settings = Settings()
+
+with open(settings.MODEL_PATH, "rb") as f_in:
     model = pickle.load(f_in)
+logger.info(f"Model loaded from : {settings.MODEL_PATH}")
 
 # "feature engineering" part
 def prepare_features(raw_features: dict[str, Any]) -> dict[str,Any]:

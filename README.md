@@ -94,3 +94,12 @@ now we can run training via `make train`
 - implement simple loading of the model file, and run it via `uv run python src/duration_pred_serve/serve.py`
 - make it a webserver, and run via `uv run fastapi dev src/duration_pred_serve/serve.py` or `make serve`
 - for testing it we create `predict-test.py` and test it via `make predict-test`
+
+## environment variables
+- you can create environment variables via `export HELLO=world`, this creates a variable named `HELLO` with the value `world`
+- print out variables via `echo $HELLO`
+- remove the variable via `unset HELLO`
+- in python you can access those via os.getenv()
+- alternatively via BaseSettings from pydantic_settings
+- we define now `MODEL_PATH=./models/2022-01.bin`
+- we add the export into the make file
