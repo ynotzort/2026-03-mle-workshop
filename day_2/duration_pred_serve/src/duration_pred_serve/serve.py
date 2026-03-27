@@ -9,8 +9,11 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     MODEL_PATH: str = "./model.bin"
+    MODEL_VERSION: str = "not_defined"
     
 settings = Settings()
+
+logger.info(f"Model version is {settings.MODEL_VERSION}")
 
 with open(settings.MODEL_PATH, "rb") as f_in:
     model = pickle.load(f_in)
@@ -47,6 +50,9 @@ def predict_endpoint(predict_request: PredictRequest) -> dict[str, Any]:
     prepared_features = prepare_features(predict_request.model_dump())
     prediction = predict(prepared_features)
     final_prediction = postprocess(prediction)
-    return dict(prediction=dict(duration=final_prediction))
+    return dict(
+        prediction=dict(duration=final_prediction), 
+        version=settings.MODEL_VERSION,
+    )
     
 
