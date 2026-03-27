@@ -16,4 +16,4 @@ docker_build:
 	docker build -t duration-prediction:latest .
 	
 docker_run: docker_build
-	docker run -it duration-prediction:latest
+	docker run -it -p 8080:8080 duration-prediction:latest
