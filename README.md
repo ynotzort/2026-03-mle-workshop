@@ -1,6 +1,6 @@
 # 2026-03-mle-workshop
 
-## day 1
+# day 1
 
 this project is based on https://github.com/ynotzort/ml-engineering-contsructor-workshop
 
@@ -71,3 +71,11 @@ now we can run training via `make train`
 - create a `__init__.py` file in the `tests` folder (`touch tests/__init__.py`)
 - create a `test_train.py` file in the tests folder (has to start with `test_`)
 - run tests via `uv run pytest` or `make test`
+
+
+# day 2
+
+## create the project and add the dependencies
+- create a top level folder `day_2` just below `day_1` and change into it (`mkdir day_2 && cd day_2`)
+- create a new uv project: `uv init --lib --python 3.10 duration_pred_serve`
+- change dir into `duration_pred_serve` (via `cd duration_pred_serve`)
