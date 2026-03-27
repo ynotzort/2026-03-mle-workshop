@@ -6,12 +6,6 @@ from pydantic import BaseModel
 
 with open("./models/2022-01.bin", "rb") as f_in:
     model = pickle.load(f_in)
-    
-# trip = {
-#     "PULocationID": "43",
-#     "DOLocationID": "238",
-#     "trip_distance": 1.16,
-# }
 
 # "feature engineering" part
 def prepare_features(raw_features: dict[str, Any]) -> dict[str,Any]:

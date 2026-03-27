@@ -93,3 +93,4 @@ now we can run training via `make train`
 ## implement serve
 - implement simple loading of the model file, and run it via `uv run python src/duration_pred_serve/serve.py`
 - make it a webserver, and run via `uv run fastapi dev src/duration_pred_serve/serve.py` or `make serve`
+- for testing it we create `predict-test.py` and test it via `make predict-test`
