@@ -2,7 +2,7 @@ import pickle
 from typing import Any
 
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 with open("./models/2022-01.bin", "rb") as f_in:
     model = pickle.load(f_in)
@@ -25,9 +25,11 @@ def postprocess(prediction: float) -> float:
 
 ### server
 class PredictRequest(BaseModel):
-    PULocationID: str
-    DOLocationID: str
-    trip_distance: float
+    """Inputs required for prediction
+    """
+    PULocationID: str = Field(description="PickUp location ID")
+    DOLocationID: str = Field(description="DropOff location ID")
+    trip_distance: float = Field(description="Distance in km")
 
 app = FastAPI()
 
