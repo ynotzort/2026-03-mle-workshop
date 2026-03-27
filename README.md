@@ -79,3 +79,8 @@ now we can run training via `make train`
 - create a top level folder `day_2` just below `day_1` and change into it (`mkdir day_2 && cd day_2`)
 - create a new uv project: `uv init --lib --python 3.10 duration_pred_serve`
 - change dir into `duration_pred_serve` (via `cd duration_pred_serve`)
+- add dependencies from day 1: `uv add scikit-learn==1.2.2 numpy==1.26.4`
+- lets add testing and logging dependencies `uv add pytest loguru`
+- add webserver dependency: `uv add "fastapi[standard]"`
+- add requests dependency `uv add --dev requests`
+- copy model over from day_1 (`mkdir models && cp ../../day_1/models/2022-01.bin models/`)
