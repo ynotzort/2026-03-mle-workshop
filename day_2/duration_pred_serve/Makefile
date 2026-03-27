@@ -11,3 +11,9 @@ serve:
 .PHONY: predict-test
 predict-test:
 	uv run python predict-test.py
+	
+docker_build:
+	docker build -t duration-prediction:latest .
+	
+docker_run: docker_build
+	docker run -it duration-prediction:latest

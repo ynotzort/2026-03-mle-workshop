@@ -103,3 +103,9 @@ now we can run training via `make train`
 - alternatively via BaseSettings from pydantic_settings
 - we define now `MODEL_PATH=./models/2022-01.bin`
 - we add the export into the make file
+
+## use docker
+- create a Dockerfile
+- build the image via `docker build -t duration-prediction .`
+- run it via `docker run duration-prediction:latest`
+- or just use `make docker_run`
