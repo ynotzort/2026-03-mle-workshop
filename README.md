@@ -109,3 +109,8 @@ now we can run training via `make train`
 - build the image via `docker build -t duration-prediction .`
 - run it via `docker run duration-prediction:latest`
 - or just use `make docker_run`
+
+## Lets deploy it to the world via fly.io
+- install it via `curl -L https://fly.io/install.sh | sh`, add it to path (y) and then run as suggested `source ~/.bashrc`
+- login via `fly auth login`
+- deploay via `fly launch`
